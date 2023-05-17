@@ -16,18 +16,18 @@ import lombok.Data;
 
 @Data
 @Table(name = "enrollments")
-@Entity(name = "Enrollment")
-public class EnrollmentEntity {
+@Entity
+public class Enrollment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long enrollmentId;
 
     @ManyToOne
-    private UserEntity user;
+    private User user;
 
     @ManyToOne
-    private CourseEntity course;
+    private Course course;
 
     private LocalDate enrollmentDate;
 

@@ -14,19 +14,19 @@ import lombok.Data;
 
 @Data
 @Table(name = "messages")
-@Entity(name = "Message")
-public class MessageEntity {
+@Entity
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private CourseEntity course;
+    private Course course;
 
     private String message;
 

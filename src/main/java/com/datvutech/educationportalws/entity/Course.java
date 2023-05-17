@@ -15,8 +15,8 @@ import lombok.Data;
 
 @Data
 @Table(name = "courses")
-@Entity(name = "Course")
-public class CourseEntity {
+@Entity
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer courseId;
@@ -27,7 +27,7 @@ public class CourseEntity {
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
-    private UserEntity teacher;
+    private User teacher;
 
     private LocalDate startDate;
 

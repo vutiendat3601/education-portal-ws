@@ -15,8 +15,8 @@ import lombok.Data;
 
 @Data
 @Table(name = "preferences")
-@Entity(name = "Preference")
-public class PreferenceEntity {
+@Entity
+public class Preference {
 
     @Id
     @GeneratedValue()
@@ -24,7 +24,7 @@ public class PreferenceEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     @Enumerated(EnumType.STRING)
     private NotificationSetting notificationSetting;

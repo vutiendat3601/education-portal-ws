@@ -13,22 +13,22 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "resources")
-@Entity(name = "Resource")
-public class ResourceEntity {
+@Table(name = "assignments")
+@Entity
+public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long resourceId;
+    private Integer assignmentId;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private CourseEntity course;
+    private Course course;
 
     private String title;
 
     private String description;
 
-    private String url;
+    private LocalDateTime dueDate;
 
     private LocalDateTime createdAt;
 
