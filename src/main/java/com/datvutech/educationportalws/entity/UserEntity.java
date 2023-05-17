@@ -1,6 +1,7 @@
 package com.datvutech.educationportalws.entity;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,7 +20,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private UUID userId;
 
     private String firstName;
 
