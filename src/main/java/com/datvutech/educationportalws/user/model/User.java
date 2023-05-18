@@ -9,11 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
@@ -22,7 +21,28 @@ import lombok.Data;
 @Table(name = "users")
 @Entity
 public class User implements UserDetails {
+    @Id
+    private UUID userId;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+
+    private String pwd;
+
+    private LocalDateTime createdAt;
+
+    private boolean enabled;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    /* #: Constructors */
     public User() {
     }
 
@@ -40,42 +60,18 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    @Id
-    private UUID userId;
+    /* # Constructors */
 
-    private String firstName;
-
-    private String lastName;
-
-    private String email;
-
-    private String pwd;
-
-    // @Column(columnDefinition = "NOT NULL DEFAULT CURRENT_TIMESTAMP")
-    @ColumnDefault("CURRENT_TIMESTAMP")
-    private LocalDateTime createdAt;
-
-    // @Column(columnDefinition = "NOT NULL DEFAULT CURRENT_TIMESTAMP")
-    @ColumnDefault("CURRENT_TIMESTAMP")
-    private LocalDateTime updatedAt;
-
-    private boolean nonLocked;
-
-    private boolean nonExpired;
-
-    private boolean credentialsNonExpired;
-
-    private boolean enabled;
-
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    /* #: Triggers */
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+        enabled = true;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.toString()));
+        return List.of(role);
     }
 
     @Override
@@ -90,22 +86,17 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return nonLocked;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return nonExpired;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
+        return true;
     }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
-
+    /* # Triggers */
 }

@@ -46,7 +46,8 @@ public class UserService {
             throw new DuplicateResourceException("Email already taken!");
         }
         String pwd = passEncoder.encode(userReq.password());
-        User user = new User(userReq.firstName(), userReq.lastName(), userReq.email(), pwd, userReq.gender(), userReq.role());
+        User user = new User(userReq.firstName(), userReq.lastName(), userReq.email(), pwd, userReq.gender(),
+                userReq.role());
         user.setUserId(UUID.randomUUID());
         user = userRepo.save(user);
         return userDtoMapper.apply(user);
@@ -74,7 +75,7 @@ public class UserService {
     }
 
     public Page<UserDto> getUserList(int page, int limit) {
-        Pageable pageReq = PageRequest.of(page, limit);
+        Pageable pageReq = PageRequest.of(page - 1, limit);
         Page<User> pageResult = userRepo.findAll(pageReq);
         Page<UserDto> pageResp = pageResult.map(userDtoMapper::apply);
         return pageResp;

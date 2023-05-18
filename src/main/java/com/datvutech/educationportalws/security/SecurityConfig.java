@@ -38,8 +38,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         req -> req
-                                .antMatchers("/users/**").hasRole("ADMIN")
-                                .antMatchers("/login").permitAll())
+                                .antMatchers("v1/users/**").hasRole("ADMIN")
+                                .antMatchers("v1/auth/login").permitAll()
+                                .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

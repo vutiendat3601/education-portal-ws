@@ -22,7 +22,7 @@ import com.datvutech.educationportalws.user.model.request.UserUpdateRequest;
 import com.datvutech.educationportalws.user.service.UserService;
 
 @CrossOrigin
-@RequestMapping("users")
+@RequestMapping("v1/users")
 @RestController
 public class UserController {
     private final UserService userService;
