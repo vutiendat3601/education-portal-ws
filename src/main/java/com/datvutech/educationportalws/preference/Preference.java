@@ -1,4 +1,4 @@
-package com.datvutech.educationportalws.entity;
+/* package com.datvutech.educationportalws.preference;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.datvutech.educationportalws.user.model.User;
 
 import lombok.Data;
 
@@ -39,3 +41,4 @@ public class Preference {
         EMAIL, PUSH, NONE
     }
 }
+ */

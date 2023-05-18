@@ -1,5 +1,6 @@
-package com.datvutech.educationportalws.entity;
+/* package com.datvutech.educationportalws.certification;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -10,27 +11,32 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.datvutech.educationportalws.user.model.User;
+
 import lombok.Data;
 
 @Data
-@Table(name = "resources")
+@Table(name = "certifications")
 @Entity
-public class Resource {
+public class Certification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long resourceId;
+    private Integer certificationId;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @JoinColumn
+    private User user;
 
     private String title;
 
-    private String description;
+    private String issuingAuthority;
 
-    private String url;
+    private LocalDate dateIssued;
+
+    private LocalDate expirationDate;
 
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
 }
+ */

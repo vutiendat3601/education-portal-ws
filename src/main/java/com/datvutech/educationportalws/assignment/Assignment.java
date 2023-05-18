@@ -1,4 +1,4 @@
-package com.datvutech.educationportalws.entity;
+/* package com.datvutech.educationportalws.assignment;
 
 import java.time.LocalDateTime;
 
@@ -10,27 +10,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.datvutech.educationportalws.course.Course;
+
 import lombok.Data;
 
 @Data
-@Table(name = "messages")
+@Table(name = "assignments")
 @Entity
-public class Message {
+public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long messageId;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private Integer assignmentId;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
-    private String message;
+    private String title;
+
+    private String description;
+
+    private LocalDateTime dueDate;
 
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
 }
+ */

@@ -1,0 +1,46 @@
+- User profiles:
+    GET /users/{user_id}: Retrieves information about a specific user
+    POST /users: Creates a new user profile
+    PUT /users/{user_id}: Updates an existing user profile
+    DELETE /users/{user_id}: Deletes a user profile
+- Course listings:
+    GET /courses: Retrieves a list of all available courses
+    GET /courses/{course_id}: Retrieves information about a specific course
+    POST /courses: Creates a new course listing
+    PUT /courses/{course_id}: Updates an existing course listing
+    DELETE /courses/{course_id}: Deletes a course listing
+    Course registration:
+    POST /courses/{course_id}/enrollments: Registers a user for a specific course
+    PUT /courses/{course_id}/enrollments/{enrollment_id}: Updates an existing course registration
+    DELETE /courses/{course_id}/enrollments/{enrollment_id}: Cancels a course registration
+- Learning resources:
+    GET /courses/{course_id}/resources: Retrieves a list of learning resources for a specific course
+    GET /courses/{course_id}/resources/{resource_id}: Retrieves information about a specific learning resource
+    POST /courses/{course_id}/resources: Creates a new learning resource for a course
+    PUT /courses/{course_id}/resources/{resource_id}: Updates an existing learning resource for a course
+    DELETE /courses/{course_id}/resources/{resource_id}: Deletes a learning resource for a course
+- Communication tools:
+    GET /courses/{course_id}/messages: Retrieves a list of messages for a specific course
+    GET /courses/{course_id}/messages/{message_id}: Retrieves information about a specific message
+    POST /courses/{course_id}/messages: Sends a new message for a course
+    PUT /courses/{course_id}/messages/{message_id}: Updates an existing message for a course
+    DELETE /courses/{course_id}/messages/{message_id}: Deletes a message for a course
+- Progress tracking:
+    GET /courses/{course_id}/progress: Retrieves progress information for a specific course
+    POST /courses/{course_id}/assignments: Creates a new assignment for a course
+    PUT /courses/{course_id}/assignments/{assignment_id}: Updates an existing assignment for a course
+    DELETE /courses/{course_id}/assignments/{assignment_id}: Deletes an assignment for a course
+- Certification and accreditation:
+    GET /courses/{course_id}/certification: Retrieves certification information for a specific course
+    POST /courses/{course_id}/certification: Creates a new certification for a course
+    PUT /courses/{course_id}/certification/{certification_id}: Updates an existing certification for a course
+    DELETE /courses/{course_id}/certification/{certification_id}: Deletes a certification for a course
+- Personalization:
+    GET /users/{user_id}/preferences: Retrieves personalized preferences for a specific user
+    POST /users/{user_id}/preferences: Creates or updates personalized preferences for a specific user
+- Analytics:
+    GET /analytics: Retrieves usage analytics for the app
+    GET /analytics/{course_id}: Retrieves usage analytics for a specific course
+    Accessibility:
+    GET /accessibility: Retrieves accessibility information for the app
+    GET /accessibility/{course_id}: Retrieves accessibility information for a specific course

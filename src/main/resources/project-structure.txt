@@ -1,0 +1,53 @@
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── com.example.myapp
+│   │   │   │   ├── controller
+│   │   │   │   │   ├── UserController.java
+│   │   │   │   │   └── UserRequest.java
+│   │   │   │   ├── dto
+│   │   │   │   │   ├── UserDto.java
+│   │   │   │   │   └── UserMapper.java
+│   │   │   │   ├── entity
+│   │   │   │   │   └── User.java
+│   │   │   │   ├── model
+│   │   │   │   │   └── UserModel.java
+│   │   │   │   ├── repository
+│   │   │   │   │   └── UserRepository.java
+│   │   │   │   └── service
+│   │   │   │       └── UserService.java
+│   │   │   └── com.example.myapp.MyAppApplication.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── data.sql
+│   │       └── schema.sql
+│   └── test
+│       └── java
+│           └── com.example.myapp
+│               ├── controller
+│               │   └── UserControllerTest.java
+│               ├── repository
+│               │   └── UserRepositoryTest.java
+│               └── service
+│                   └── UserServiceTest.java
+└── pom.xml
+
+src/main/java: The directory where all the Java source code resides.
+com.example.myapp: The package that contains all the Java classes for this app.
+controller: The package that contains the REST API controllers.
+UserRequest: A class used to map incoming requests to a specific controller method.
+dto: The package that contains Data Transfer Object (DTO) classes and their associated mapper classes.
+entity: The package that contains the JPA entities.
+model: The package that contains the Model classes used to represent data in the views.
+repository: The package that contains the JPA repository interfaces.
+service: The package that contains the business logic and service classes.
+com.example.myapp.MyAppApplication: The main class that starts the Spring Boot application.
+src/main/resources: The directory where the application properties and SQL scripts reside.
+application.properties: The file that contains the configuration properties for the Spring Boot application.
+data.sql: The file that contains the SQL script to initialize the database with test data.
+schema.sql: The file that contains the SQL script to create the database schema.
+src/test/java: The directory where all the Java test classes reside.
+UserControllerTest: The class that contains the JUnit test cases for the UserController class.
+UserRepositoryTest: The class that contains the JUnit test cases for the UserRepository interface.
+UserServiceTest: The class that contains the JUnit test cases for the UserService class.
+pom.xml: The Maven project file that contains the dependencies and build configuration for the project.

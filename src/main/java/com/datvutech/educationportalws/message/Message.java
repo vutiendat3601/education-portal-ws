@@ -1,44 +1,40 @@
-package com.datvutech.educationportalws.entity;
+/* package com.datvutech.educationportalws.message;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.datvutech.educationportalws.course.Course;
+import com.datvutech.educationportalws.user.model.User;
 
 import lombok.Data;
 
 @Data
-@Table(name = "enrollments")
+@Table(name = "messages")
 @Entity
-public class Enrollment {
-
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long enrollmentId;
+    private Long messageId;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
+    @JoinColumn(name = "course_id")
     private Course course;
 
-    private LocalDate enrollmentDate;
-
-    @Enumerated(EnumType.STRING)
-    private EnrollmentStatus status;
+    private String message;
 
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
-
-    public enum EnrollmentStatus {
-        ENROLLED, COMPLETED, DROPPED
-    }
 }
+ */
