@@ -1,5 +1,6 @@
 package com.datvutech.educationportalws.user.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -30,9 +31,17 @@ public class User implements UserDetails {
 
     private String email;
 
+    private String phone;
+
     private String pwd;
 
+    private String profileImg;
+
+    private String backgroundImg;
+
     private LocalDateTime createdAt;
+
+    private String bio;
 
     private boolean enabled;
 
@@ -42,6 +51,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
+    private LocalDate birthday;
+
     /* #: Constructors */
     public User() {
     }
@@ -50,14 +61,20 @@ public class User implements UserDetails {
             String lastName,
             String email,
             String pwd,
+            String bio,
+            String phone,
             Gender gender,
-            UserRole role) {
+            UserRole role,
+            LocalDate birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.pwd = pwd;
         this.gender = gender;
         this.role = role;
+        this.bio = bio;
+        this.phone = phone;
+        this.birthday = birthday;
     }
 
     /* # Constructors */
@@ -65,8 +82,13 @@ public class User implements UserDetails {
     /* #: Triggers */
     @PrePersist
     public void prePersist() {
+        phone = phone == null ? "" : phone;
+        profileImg = profileImg == null ? "" : profileImg;
+        backgroundImg = backgroundImg == null ? "" : backgroundImg;
         createdAt = LocalDateTime.now();
+        bio = bio == null ? "" : bio;
         enabled = true;
+        birthday = birthday == null ? LocalDate.of(1970, 1, 1) : birthday;
     }
 
     @Override

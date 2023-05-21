@@ -17,9 +17,14 @@ public class UserDtoMapper implements Function<User, UserDto> {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
+                user.getPhone(),
+                user.getBio(),
+                user.getProfileImg(),
+                user.getBackgroundImg(),
                 user.getCreatedAt(),
                 user.getGender(),
-                user.getRole());
+                user.getRole(),
+                user.getBirthday());
     }
 
 }
